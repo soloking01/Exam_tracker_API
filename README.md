@@ -27,6 +27,7 @@ This project provides a programmatic alternative to manual spreadsheet tracking.
 
 2. **Create and activate a virtual environment:**
    # Windows
+   ```bash
    python -m venv venv
    venv\Scripts\activate
 
@@ -34,13 +35,15 @@ This project provides a programmatic alternative to manual spreadsheet tracking.
    python3 -m venv venv  
    source venv/bin/activate
 
-3. **Install dependencies:**
+4. **Install dependencies:**
+   ```bash
    pip install fastapi uvicorn sqlalchemy pydantic
 
-4. **Run the development server:**
+6. **Run the development server:**
+   ```bash
    uvicorn main:app --reload
 
-5. **Access the API:**
+8. **Access the API:**
    
 * Base URL: http://127.0.0.1:8000
 
