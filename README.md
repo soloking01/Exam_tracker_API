@@ -22,7 +22,7 @@ This project provides a programmatic alternative to manual spreadsheet tracking.
 
 1. **Clone the repository:**
    ```bash
-   git clone [https://github.com/yourusername/exam_tracker_api.git](https://github.com/yourusername/exam_tracker_api.git)
+   git clone https://github.com/soloking01/Exam_tracker_API.git)
    cd exam_tracker_api
 
 2. **Create and activate a virtual environment:**
