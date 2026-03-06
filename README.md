@@ -59,5 +59,5 @@ This project provides a programmatic alternative to manual spreadsheet tracking.
 |PUT|/items/{id} | Update an existing item by its ID|
 |DELETE|/items/{id}| Delete an item by its ID|
 
-** AUTHOR **
+**AUTHOR**
 Deepak
