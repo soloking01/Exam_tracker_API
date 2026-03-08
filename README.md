@@ -1,6 +1,6 @@
 # Application and Exam Tracker API
 
-A backend REST API built with Python and FastAPI to track and manage job applications and competitive exam schedules. 
+A backend REST API built with Python and FastAPI to track and manage job applications and competitive exam schedules and a streamlit ui to interact with the API.
 
 This project provides a programmatic alternative to manual spreadsheet tracking. It uses an SQLite database for storage and includes custom search filters.
 
