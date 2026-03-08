@@ -34,24 +34,22 @@ def create_item(item: schemas.TrackedItemCreate, db: Session = Depends(get_db)):
     
     return db_item
 
+# GET Route: Retrieve items, with optional case-insensitive filters
 @app.get("/items", response_model=List[schemas.TrackedItemResponse])
 def get_all_items(
     status: Optional[str] = None, 
     category: Optional[str] = None, 
     db: Session = Depends(get_db)
 ):
-    
     query = db.query(models.TrackedItem)
     
-    
+    # Use .ilike() for case-insensitive matching
     if status:
-        query = query.filter(models.TrackedItem.status == status)
+        query = query.filter(models.TrackedItem.status.ilike(status))
         
-    
     if category:
-        query = query.filter(models.TrackedItem.category == category)
+        query = query.filter(models.TrackedItem.category.ilike(category))
         
-   
     return query.all()
 
 @app.put("/items/{item_id}", response_model=schemas.TrackedItemResponse)
