@@ -4,6 +4,10 @@ A backend REST API built with Python and FastAPI to track and manage job applica
 
 This project provides a programmatic alternative to manual spreadsheet tracking. It uses an SQLite database for storage and includes custom search filters.
 
+
+https://github.com/user-attachments/assets/4cd2a97a-8064-4d4a-ae29-b3e0ab0a3116
+
+
 ## Features
 * **CRUD Operations:** Endpoints to create, read, update, and delete application records.
 * **Database Integration:** Uses SQLite and SQLAlchemy ORM for data storage.
