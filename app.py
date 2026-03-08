@@ -2,16 +2,12 @@ import streamlit as st
 import requests
 import pandas as pd
 
-# Define the base URL of your FastAPI backend
 API_URL = "http://127.0.0.1:8000"
 
-# --- UI UPGRADE: Page config and title ---
 st.set_page_config(page_title="Exam & Job Tracker", page_icon="🎯", layout="wide")
 st.title(" Application & Exam Tracker Dashboard")
 st.markdown("Track your government exams, software engineering applications, and interview schedules in one place.")
 
-# --- UI UPGRADE: Top Level Metrics ---
-# We fetch all data first just to calculate the numbers for the top dashboard
 try:
     metrics_response = requests.get(f"{API_URL}/items")
     all_data = metrics_response.json() if metrics_response.status_code == 200 else []
@@ -23,7 +19,6 @@ if all_data:
     col1, col2, col3, col4 = st.columns(4)
     total_apps = len(all_data)
     
-    # Case-insensitive counting for the metrics
     gov_exams = len([d for d in all_data if str(d.get("category")).lower() == "government exam"])
     sde_roles = len([d for d in all_data if str(d.get("category")).lower() == "software engineer role"])
     admit_cards = len([d for d in all_data if str(d.get("status")).lower() == "admit card received"])
@@ -35,12 +30,8 @@ if all_data:
 
 st.markdown("---")
 
-# --- UI UPGRADE: Organize operations into Tabs ---
 tab1, tab2, tab3, tab4 = st.tabs(["📊 View & Search", "➕ Add New Target", "✏️ Update Entry", "🗑️ Delete Entry"])
 
-# ==========================================
-# TAB 1: READ (View & Filter)
-# ==========================================
 with tab1:
     st.subheader("Search & Filter Applications")
     
@@ -69,9 +60,6 @@ with tab1:
     except:
         pass
 
-# ==========================================
-# TAB 2: CREATE (Add New)
-# ==========================================
 with tab2:
     st.subheader("Add a New Target")
     with st.form("add_form", clear_on_submit=True):
@@ -90,9 +78,6 @@ with tab2:
                     st.success(f"Successfully added '{new_title}'!")
                     st.rerun()
 
-# ==========================================
-# TAB 3: UPDATE (Edit Existing)
-# ==========================================
 with tab3:
     st.subheader("Update an Existing Record")
     st.info("Look up the ID of the record in the 'View' tab, then enter its new details here.")
@@ -116,9 +101,6 @@ with tab3:
                 elif r.status_code == 404:
                     st.error(f"Record with ID {upd_id} not found.")
 
-# ==========================================
-# TAB 4: DELETE
-# ==========================================
 with tab4:
     st.subheader("Delete a Record")
     st.warning("Warning: This action permanently removes the entry from the database.")
