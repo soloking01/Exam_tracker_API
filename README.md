@@ -26,7 +26,7 @@ https://github.com/user-attachments/assets/4cd2a97a-8064-4d4a-ae29-b3e0ab0a3116
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/soloking01/Exam_tracker_API.git)
+   git clone https://github.com/soloking01/Exam_tracker_API.git
    cd exam_tracker_api
 
 2. **Create and activate a virtual environment:**
